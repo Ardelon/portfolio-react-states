@@ -14,17 +14,18 @@ class ListElement extends React.Component {
 	addOneToCounter = () => {
 		this.setState((state) => ({
 			counter: state.counter + 1,
+			reRenderCount : state.reRenderCount +1
 		}));
 	};
 
 	removeOneFromCounter = () => {
 		this.setState((state) => ({
 			counter: state.counter - 1,
+			reRenderCount : state.reRenderCount +1
 		}));
 	};
 
 	componentDidMount() {
-		console.count('mount');
 		this.parentElement.current.classList.add('initial-render');
 		setTimeout(() => {
 			if (this.parentElement.current) {
@@ -37,7 +38,6 @@ class ListElement extends React.Component {
 	}
 
 	componentDidUpdate() {
-		console.count('update');
 		this.parentElement.current.classList.add('re-render');
 		setTimeout(() => {
 			if (this.parentElement.current) {

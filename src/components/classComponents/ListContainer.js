@@ -16,29 +16,48 @@ class ListContainer extends React.Component {
 
 	addNumberToArray = () => {
 		this.setState((state) => ({
-            array :  [...state.array, state.array.length + 1]
+            array :  [...state.array, state.array.length + 1],
+			reRenderCount : state.reRenderCount +1
         }));
 	};
 
     removeNumberFromArray = () => {
         this.state.array.pop();
         this.setState((state) => ({
-            array : [...state.array]
+            array : [...state.array],
+			reRenderCount : state.reRenderCount +1
         }))
     }
 
-    updateChildrenRenderCounts = () => {
-        console.log('selam');
-    }
+	componentDidMount() {
+		this.parentElement.current.classList.add('initial-render');
+		setTimeout(() => {
+			if (this.parentElement.current) {
+				this.parentElement.current.classList.remove('initial-render');
+			}
+		}, 300);
+		this.setState((state) => ({
+			initialRenderCount: state.initialRenderCount + 1,
+		}));
+	}
+
+	componentDidUpdate() {
+		this.parentElement.current.classList.add('re-render');
+		setTimeout(() => {
+			if (this.parentElement.current) {
+				this.parentElement.current.classList.remove('re-render');
+			}
+		}, 300);
+	}
 
 	render() {
 		return (
 			<div ref={this.parentElement} className={'list-container'}>
 				<Counter
 					childrenInitialRenderCount={this.state.childrenInitialRenderCount}
-					reRenderCount={this.statereRenderCount}
-					initialRenderCount={this.stateinitialRenderCount}
-					childrenReRenderCount={this.statechildrenReRenderCount}
+					reRenderCount={this.state.reRenderCount}
+					initialRenderCount={this.state.initialRenderCount}
+					childrenReRenderCount={this.state.childrenReRenderCount}
 					name={'ListContainer'}
 				/>
 				{this.state.array.map((item) => {
