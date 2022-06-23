@@ -4,6 +4,7 @@ import ListContainer from "./fnComponents/ListContainer";
 import {default as CounterComp} from './classComponents/Counter';
 import {default as ListContainerComp} from './classComponents/ListContainer';
 import {default as ListElementComp} from './classComponents/ListElement';
+import {default as ReduxListContainer} from './reduxComponents/ListContainer';
 
 
 const CounterDisplay = () => {
@@ -35,7 +36,7 @@ const CounterDisplay = () => {
 
     return (
         <div ref={parentElement} className="App">
-        <CounterComp
+        {/* <CounterComp
             initialRenderCount={initialRenderCount}
             reRenderCount={reRenderCount}
             name={'App'}
@@ -48,7 +49,8 @@ const CounterDisplay = () => {
         />
         
         <ListContainerComp />
-        <ListContainer />
+        <ListContainer /> */}
+		<ReduxListContainer/>
     </div>
     )
 
