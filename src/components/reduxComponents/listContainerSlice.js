@@ -1,14 +1,16 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+
+const initialState =  {
+	array: [1, 2, 3, 4, 5],
+	initialRenderCount: 0,
+	reRenderCount: 0,
+	childrenInitialRenderCount: 0,
+	childrenReRenderCount: 0,
+}
 export const listContainerSlice = createSlice({
 	name: 'listContainer',
-	initialState: {
-		array: [1, 2, 3, 4, 5],
-		initialRenderCount: 0,
-		reRenderCount: 0,
-		childrenInitialRenderCount: 0,
-		childrenReRenderCount: 0,
-	},
+	initialState,
 	reducers: {
 		incrementArray: (state) => {
 			state.array.push(state.array.length + 1);
@@ -41,4 +43,4 @@ export const {
 	incerementChildrenReRenderCount,
 } = listContainerSlice.actions;
 
-export default listContainerSlice
+export default listContainerSlice.reducer

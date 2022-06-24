@@ -45,11 +45,17 @@ const ListContainer = (props) => {
 			}
 		}, 300);
 		setReRenderCount(reRenderCount + 1);
-	}, [array, childrenInitialRenderCount,childrenReRenderCount ]);
+	}, [array, childrenInitialRenderCount, childrenReRenderCount]);
 
 	return (
 		<div ref={parentElement} className={'list-container'}>
-			<Counter childrenInitialRenderCount={childrenInitialRenderCount} reRenderCount={reRenderCount} initialRenderCount={initialRenderCount} childrenReRenderCount={childrenReRenderCount} name={'ListContainer'} />
+			<Counter
+				childrenInitialRenderCount={childrenInitialRenderCount}
+				reRenderCount={reRenderCount}
+				initialRenderCount={initialRenderCount}
+				childrenReRenderCount={childrenReRenderCount}
+				name={'Fn ListContainer'}
+			/>
 			{array.map((item) => {
 				return (
 					<ListElement

@@ -42,7 +42,7 @@ const ListElement = (props) => {
     }
     return (
         <div ref={parentElement} className={'list-element'}>
-            <Counter initialRenderCount={initialRenderCount} reRenderCount={reRenderCount} />
+            <Counter initialRenderCount={initialRenderCount} reRenderCount={reRenderCount} name={"Redux ListElement"} />
             <button onClick={props.addNumberToArray}>Add List Element</button>
             <button onClick={props.removeNumberFromArray}>Remove List Element</button>
             <button onClick={addOneToCounter}>Add One To Counter</button>

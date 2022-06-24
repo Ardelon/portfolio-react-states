@@ -8,6 +8,7 @@ import {
 	incrementInitialRenderCount,
 	incrementReRenderCount,
 	incerementChildrenReRenderCount,
+	incrementChildrenInitialRenderCount
 } from './listContainerSlice';
 
 const ListContainer = (props) => {
@@ -35,8 +36,13 @@ const ListContainer = (props) => {
 		dispatch(incrementArray());
 	};
 
-	const updateChildrenRenderCounts = () => {
-		dispatch(incerementChildrenReRenderCount());
+	const updateChildrenRenderCounts = (type = 'reRender') => {
+		if (type === 'reRender') {
+			dispatch(incerementChildrenReRenderCount());
+		} else {
+			dispatch(incrementChildrenInitialRenderCount());
+		}
+		
 	};
 
 	useEffect(() => {
@@ -66,7 +72,7 @@ const ListContainer = (props) => {
 				reRenderCount={reRenderCount}
 				initialRenderCount={initialRenderCount}
 				childrenReRenderCount={childrenReRenderCount}
-				name={'ListContainer'}
+				name={'Redux ListContainer'}
 			/>
 			{array.map((item) => {
 				return (

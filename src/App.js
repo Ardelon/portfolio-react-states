@@ -4,7 +4,7 @@ function App(props) {
 	
 	return (
 		<div>
-
+			<CounterDisplay/>
 		</div>
 	);
 }

@@ -52,6 +52,7 @@ class ListElement extends React.Component {
 				<Counter
 					initialRenderCount={this.state.initialRenderCount}
 					reRenderCount={this.state.reRenderCount}
+					name={'Class ListElement'}
 				/>
 				<button onClick={this.props.addNumberToArray}>Add List Element</button>
 				<button onClick={this.props.removeNumberFromArray}>

@@ -58,7 +58,7 @@ class ListContainer extends React.Component {
 					reRenderCount={this.state.reRenderCount}
 					initialRenderCount={this.state.initialRenderCount}
 					childrenReRenderCount={this.state.childrenReRenderCount}
-					name={'ListContainer'}
+					name={'Class ListContainer'}
 				/>
 				{this.state.array.map((item) => {
 					return (
